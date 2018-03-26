@@ -24,7 +24,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-class OTP extends AppCompatActivity implements
+public class OTP extends AppCompatActivity implements
         View.OnClickListener {
 
     private static final String TAG = "PhoneAuthActivity";
@@ -64,7 +64,7 @@ class OTP extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
+        setContentView(R.layout.activity_otp);
 
         // Restore instance state
         if (savedInstanceState != null) {
