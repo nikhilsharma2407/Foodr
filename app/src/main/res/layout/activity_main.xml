@@ -16,7 +16,7 @@
         android:layout_marginTop="49dp"
         android:text="WELCOME TO FOODr"
         android:textAlignment="gravity"
-        android:textSize="24sp" />
+        android:textSize="23sp" />
 
 
 
