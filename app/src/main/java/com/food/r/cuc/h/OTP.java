@@ -24,7 +24,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-class OTP extends AppCompatActivity implements
+public class OTP extends AppCompatActivity implements
         View.OnClickListener {
 
     private static final String TAG = "PhoneAuthActivity";

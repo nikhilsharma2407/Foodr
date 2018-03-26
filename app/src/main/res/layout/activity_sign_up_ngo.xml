@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_new_user"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
     <LinearLayout
         android:padding="20dp"
         android:layout_width="match_parent"
@@ -44,6 +41,7 @@
                     android:layout_gravity="center_horizontal"
                     android:gravity=""/>
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="City"/>
@@ -58,20 +56,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Please make sure that password is atleast 8 characters"
-                    android:textColor="#f22828"
-                    android:id="@+id/TextViewPasswordWarning"
-                    android:visibility="gone"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:text="Locality, area or street"/>
 
                 <EditText
                     android:id="@+id/Area"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword"
                     android:maxLines="1" />
 
                 <TextView
