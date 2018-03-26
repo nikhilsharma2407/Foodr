@@ -40,41 +40,23 @@
                     android:text="Registered Address"
                     android:layout_gravity="center_horizontal"
                     android:gravity=""/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/AddressNGO"/>
                 <TextView
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="City"/>
+                    android:text="City/State"/>
 
 
                 <EditText
                     android:id="@+id/City"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:maxLines="1" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Locality, area or street"/>
-
-                <EditText
-                    android:id="@+id/Area"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:maxLines="1" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Building Name"/>
-
-                <EditText
-                    android:id="@+id/BuildingName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:maxLines="1" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -88,25 +70,8 @@
                     android:maxLength="6"
                     android:maxLines="1" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="State"/>
 
-                <EditText
-                    android:id="@+id/State"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text|numberDecimal"
-                    android:maxLines="1" />
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:id="@+id/activity_new_userAdminPassword_ET"
-                    android:visibility="gone"
-                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -119,17 +84,37 @@
                     android:inputType="numberDecimal"
                     android:maxLength="10" />
 
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Email"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Password"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pwd1"
+                    android:inputType="textPassword"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Confirm Password"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pwd2"
+                    android:inputType="textPassword"/>
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Submit"
-                    android:onClick="CallDbInsert"/>
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="PhoneNumber"/>
-
+                    android:text="Submit"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

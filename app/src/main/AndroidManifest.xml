@@ -3,6 +3,8 @@
     package="com.food.r.cuc.h">
     xmlns:tools="http://schemas.android.com/tools"
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,24 +13,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OTP"
+        <activity
+            android:name=".OTP"
             android:icon="@drawable/logo"
-            android:label="My new title"
-            >
-
-
-        </activity>
-        <activity android:name=".MainActivity"
+            android:label="My new title"></activity>
+        <activity
+            android:name=".MainActivity"
             android:icon="@drawable/logo"
             android:label="Foodr The food Sharing App">
+
+        </activity>
+        <activity android:name=".SignUpNGOActivity"></activity>
+        <activity android:name=".map">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".SignUpNGOActivity">
-
         </activity>
     </application>
 

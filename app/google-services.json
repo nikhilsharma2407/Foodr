@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "353256261033-bafhsjnp6d8ejg7osnmgg1nurul6p0sa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.food.r.cuc.h",
+            "certificate_hash": "d12b0e4a2b39dbd3b2d19265cd2a4972f79d98b0"
+          }
+        },
+        {
           "client_id": "353256261033-g1uopv69pdthck4mle0gp0kv896mt28a.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -28,6 +36,50 @@
           "android_info": {
             "package_name": "com.food.r.cuc.h",
             "certificate_hash": "3b7aea2ac526727d33fae15ebc79481e3a0eb7f8"
+          }
+        },
+        {
+          "client_id": "353256261033-lenp9ogddlefp32dr8sckj92pc3pedph.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgEK-d8ERu4koKFvvnUmHpNPFMwuegGtQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353256261033-lenp9ogddlefp32dr8sckj92pc3pedph.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353256261033:android:4a9bf02d8c858b3e",
+        "android_client_info": {
+          "package_name": "com.foodr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353256261033-bjqmiqm09org9s6ckjl8q7iaruge62v1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.foodr",
+            "certificate_hash": "9b13ea13906b1aa91ff355eae5054c2c0cec2a26"
           }
         },
         {
