@@ -10,9 +10,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.food.r.cuc.h.R;
 import com.google.firebase.database.DatabaseReference;
@@ -46,8 +48,9 @@ public class users extends AppCompatActivity
     private DatabaseReference mDatabase;
     DatabaseReference newDB;
     private EditText e1,e2;
-    private MultiAutoCompleteTextView multitext;
+    private AutoCompleteTextView multitext;
     private CheckBox cb1, cb2, cb3;
+    boolean check;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,27 +58,41 @@ public class users extends AppCompatActivity
         setContentView(R.layout.activity_map2);
         callAll();
 
-        e1 = (EditText)findViewById(R.id.);
-        e2 = (EditText)findViewById(R.id.);
+        e1 = (EditText)findViewById(R.id.count);
+        e2 = (EditText)findViewById(R.id.useraddress);
+        multitext=(AutoCompleteTextView)findViewById(R.id.actAll);
+        cb1=(CheckBox)findViewById(R.id.cb1);
+        cb2=(CheckBox)findViewById(R.id.cb2);
+        cb3=(CheckBox)findViewById(R.id.cb3);
+
         phone = getIntent().getStringExtra("phone");
         name = getIntent().getStringExtra("name");
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("ngo");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("user");
         newDB = mDatabase.push();
         String key  = newDB.getKey();
+        cb3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                check=cb3.isChecked();
+            }
+        });
     }
+
 
     public  void usersubmit(View view)
     {
+        if(check) {
 
+            newDB.child("count").setValue(e1.getText().toString());
+            newDB.child("address").setValue(e2.getText().toString());
+            newDB.child("username").setValue(name);
+            newDB.child("userphone").setValue(phone);
+            newDB.child("check").setValue(check);
+        }
+        else
+            Toast.makeText(this,"Please accept that food is fit for Consumption",Toast.LENGTH_SHORT).show();
 
-        newDB.child("ngoname").setValue(e1.getText().toString());
-        newDB.child("ngophone").setValue(e2.getText().toString());
-        newDB.child("ngoaddress").setValue(e3.getText().toString());
-        newDB.child("ngopin").setValue(e4.getText().toString());
-        newDB.child("ngoncity").setValue(e5.getText().toString());
-        newDB.child("ngopwd1").setValue(e6.getText().toString());
-        newDB.child("ngoemail").setValue(e8.getText().toString());
     }
 
 
