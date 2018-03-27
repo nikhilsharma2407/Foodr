@@ -113,7 +113,7 @@
                     android:text="Phone Number"/>
 
                 <EditText
-                    android:id="@+id/NGOPhoneNo."
+                    android:id="@+id/NGOPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
@@ -125,10 +125,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Submit"
-                    android:onClick="CallDbInsert"/>
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="PhoneNumber"/>
+                    android:onClick="dbinsert"/>
+
 
             </LinearLayout>
         </ScrollView>
