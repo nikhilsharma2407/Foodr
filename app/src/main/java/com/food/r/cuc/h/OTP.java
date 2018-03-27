@@ -130,7 +130,7 @@ public class OTP extends AppCompatActivity implements
                 // [END_EXCLUDE]
                 signInWithPhoneAuthCredential(credential);
 
-                Intent i = new Intent(OTP.this,User.class);
+                Intent i = new Intent(OTP.this,users.class);
                 i.putExtra("name",name);
                 i.putExtra("phone",phone);
                 startActivity(i);
