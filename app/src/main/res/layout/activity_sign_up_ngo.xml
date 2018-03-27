@@ -110,11 +110,13 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/pwd2"
                     android:inputType="textPassword"/>
+
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Submit"/>
+                    android:onClick="NGOsubmit"
+                    android:text="Submit" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

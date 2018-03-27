@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.concurrent.TimeUnit;
 
@@ -57,11 +58,15 @@ public class OTP extends AppCompatActivity implements
 
     private EditText mPhoneNumberField;
     private EditText mVerificationField;
+    private EditText username;
 
     private Button mStartButton;
     private Button mVerifyButton;
     private Button mResendButton;
     private Button mSignOutButton;
+
+    private String name, phone;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +81,8 @@ public class OTP extends AppCompatActivity implements
         // Assign views
         mPhoneNumberViews = findViewById(R.id.phone_auth_fields);
         mSignedInViews = findViewById(R.id.signed_in_buttons);
+        username = (EditText)findViewById(R.id.username);
+
 
         mStatusText = findViewById(R.id.status);
         mDetailText = findViewById(R.id.detail);
@@ -83,6 +90,8 @@ public class OTP extends AppCompatActivity implements
         mPhoneNumberField = findViewById(R.id.field_phone_number);
         mVerificationField = findViewById(R.id.field_verification_code);
 
+        phone = mPhoneNumberField.getText().toString();
+        name = username.getText().toString();
         mStartButton = findViewById(R.id.button_start_verification);
         mVerifyButton = findViewById(R.id.button_verify_phone);
         mResendButton = findViewById(R.id.button_resend);
@@ -120,6 +129,11 @@ public class OTP extends AppCompatActivity implements
                 updateUI(STATE_VERIFY_SUCCESS, credential);
                 // [END_EXCLUDE]
                 signInWithPhoneAuthCredential(credential);
+
+                Intent i = new Intent(OTP.this,User.class);
+                i.putExtra("name",name);
+                i.putExtra("phone",phone);
+                startActivity(i);
             }
 
             @Override
