@@ -39,7 +39,7 @@ public class SignUpNGOActivity extends AppCompatActivity {
     {
 
 
-        newDB.child("ngoname").setValue("wwrs");
+        newDB.child("ngoname").setValue(e1.getText().toString());
         newDB.child("ngophone").setValue(e2.getText().toString());
         newDB.child("ngoaddress").setValue(e3.getText().toString());
         newDB.child("ngopin").setValue(e4.getText().toString());
