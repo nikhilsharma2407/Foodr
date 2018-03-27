@@ -26,7 +26,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CIty"
+            android:text="City"
+            android:id="@+id/usercity"
             android:textSize="20dp"/>
 
         <AutoCompleteTextView
@@ -45,12 +46,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="No of people you can feed"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:maxLength="3"/>
+            android:maxLength="3"
+            android:id="@+id/count"
+            />
 
     </LinearLayout>
 
@@ -68,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
+            android:id="@+id/useraddress"
             />
 
     </LinearLayout>
@@ -75,15 +80,18 @@
     <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Contains perishable itmes"/>
+        android:text="Contains perishable itmes"
+        android:id="@+id/cb1"/>
     <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Contains dairy products"/>
+        android:text="Contains dairy products"
+        android:id="@+id/cb2"/>
     <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Is fit for consumption"/>
+        android:text="Is fit for consumption"
+        android:id="@+id/cb3"/>
 
     <LinearLayout
         android:layout_marginTop="10dp"
@@ -98,6 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Submit"/>
+        android:text="Submit"
+        android:id="@+id/usersubmit"/>
 
 </LinearLayout>

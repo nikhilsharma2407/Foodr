@@ -1,6 +1,7 @@
 package com.food.r.cuc.h;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,9 +9,14 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.Spinner;
 
 import com.food.r.cuc.h.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,12 +42,43 @@ public class users extends AppCompatActivity
     // access all auto complete text views
     AutoCompleteTextView act;
 
+    String phone, name;
+    private DatabaseReference mDatabase;
+    DatabaseReference newDB;
+    private EditText e1,e2;
+    private MultiAutoCompleteTextView multitext;
+    private CheckBox cb1, cb2, cb3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map2);
         callAll();
+
+        e1 = (EditText)findViewById(R.id.);
+        e2 = (EditText)findViewById(R.id.);
+        phone = getIntent().getStringExtra("phone");
+        name = getIntent().getStringExtra("name");
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("ngo");
+        newDB = mDatabase.push();
+        String key  = newDB.getKey();
     }
+
+    public  void usersubmit(View view)
+    {
+
+
+        newDB.child("ngoname").setValue(e1.getText().toString());
+        newDB.child("ngophone").setValue(e2.getText().toString());
+        newDB.child("ngoaddress").setValue(e3.getText().toString());
+        newDB.child("ngopin").setValue(e4.getText().toString());
+        newDB.child("ngoncity").setValue(e5.getText().toString());
+        newDB.child("ngopwd1").setValue(e6.getText().toString());
+        newDB.child("ngoemail").setValue(e8.getText().toString());
+    }
+
+
 
     public void callAll()
     {
