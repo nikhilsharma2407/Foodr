@@ -34,7 +34,6 @@ import java.util.Set;
 
 public class map extends AppCompatActivity
 {
-    FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
     DatabaseReference newDB;
