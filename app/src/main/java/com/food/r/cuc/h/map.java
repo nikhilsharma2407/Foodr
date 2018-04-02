@@ -93,9 +93,10 @@ public class map extends AppCompatActivity
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-                Log.v("Database","Data is:" +dataSnapshot.getValue());
 
-                //   Map<String,String> stringMap = dataSnapshot.getValue(Map.class);
+                Map<String, Object> stringmap = (Map<String, Object>) dataSnapshot.getValue();
+
+                Log.v("Database","Data is:" +stringmap.toString());
 
 //                MessageBox(stringMap.toString(),"");
             }
