@@ -32,6 +32,7 @@ import org.json.JSONObject;
 import java.io.Console;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
@@ -98,6 +99,10 @@ public class map extends AppCompatActivity
 
                 Log.v("Database","Data is:" +stringmap.toString());
 
+                StringBuffer buffer = new StringBuffer();
+                buffer.append(stringmap.get("Name").toString());
+                MessageBox("Names",buffer.toString());
+
 //                MessageBox(stringMap.toString(),"");
             }
 
@@ -121,45 +126,6 @@ public class map extends AppCompatActivity
 
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        mchild.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                String name = dataSnapshot.getKey();
-//                Toast.makeText(getBaseContext(),name,Toast.LENGTH_LONG).show();
-////                MessageBox("",name);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
-//        Intent intent = new Intent(this,SignUpNGOActivity.class);
-//        startActivity(intent);
-
-    }
-
-    public void MessageBox(String Message,String title)
-    {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-        builder.setMessage(Message);
-        builder.setTitle(title);
-        builder.setCancelable(true);
-        builder.show();
     }
 
     public void callAll()
@@ -243,6 +209,15 @@ public class map extends AppCompatActivity
         act=(AutoCompleteTextView)findViewById(R.id.actAll);
         adapterSetting(listAll);
     }
+
+    public void MessageBox(String title, String Message) {
+        final android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(Message);
+        builder.show();
+    }
+
 
     // The second auto complete text view
     void addCity()
