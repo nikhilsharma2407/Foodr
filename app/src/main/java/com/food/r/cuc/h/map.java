@@ -2,20 +2,30 @@ package com.food.r.cuc.h;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.food.r.cuc.h.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Console;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -24,6 +34,10 @@ import java.util.Set;
 
 public class map extends AppCompatActivity
 {
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
+    DatabaseReference newDB;
     // array lists
     // for the spinner in the format : City_no : City , State. Eg : 144 : New Delhi , India
     ArrayList<String> listSpinner=new ArrayList<String>();
@@ -41,8 +55,28 @@ public class map extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map2);
         callAll();
+        databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://foodr-381cb.firebaseio.com/");
     }
 
+
+    public void findData(View view) {
+        AutoCompleteTextView editText = (AutoCompleteTextView)findViewById(R.id.actAll);
+        String string = editText.getText().toString();
+        DatabaseReference mchild = databaseReference.child("ngo").child("-L91qYsJ34pJcYCw8Drm").child("ngoname");
+        mchild.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String name = dataSnapshot.getValue(String.class);
+                Toast.makeText(getBaseContext(),name,Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
     public void callAll()
     {
         obj_list();

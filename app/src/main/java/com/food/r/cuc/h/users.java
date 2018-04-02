@@ -55,8 +55,8 @@ public class users extends AppCompatActivity
         setContentView(R.layout.activity_map2);
         callAll();
 
-        e1 = (EditText)findViewById(R.id.);
-        e2 = (EditText)findViewById(R.id.);
+//        e1 = (EditText)findViewById(R.id.);
+//        e2 = (EditText)findViewById(R.id.);
         phone = getIntent().getStringExtra("phone");
         name = getIntent().getStringExtra("name");
 
@@ -68,14 +68,14 @@ public class users extends AppCompatActivity
     public  void usersubmit(View view)
     {
 
-
-        newDB.child("ngoname").setValue(e1.getText().toString());
-        newDB.child("ngophone").setValue(e2.getText().toString());
-        newDB.child("ngoaddress").setValue(e3.getText().toString());
-        newDB.child("ngopin").setValue(e4.getText().toString());
-        newDB.child("ngoncity").setValue(e5.getText().toString());
-        newDB.child("ngopwd1").setValue(e6.getText().toString());
-        newDB.child("ngoemail").setValue(e8.getText().toString());
+//
+//        newDB.child("ngoname").setValue(e1.getText().toString());
+//        newDB.child("ngophone").setValue(e2.getText().toString());
+//        newDB.child("ngoaddress").setValue(e3.getText().toString());
+//        newDB.child("ngopin").setValue(e4.getText().toString());
+//        newDB.child("ngoncity").setValue(e5.getText().toString());
+//        newDB.child("ngopwd1").setValue(e6.getText().toString());
+//        newDB.child("ngoemail").setValue(e8.getText().toString());
     }
 
 

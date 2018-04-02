@@ -205,12 +205,18 @@ public class OTP extends AppCompatActivity implements
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(KEY_VERIFY_IN_PROGRESS, mVerificationInProgress);
+        Intent intent = new Intent(this,users.class);
+        startActivity(intent);
+//        Toast.makeText(this,"SaveInstance",Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         mVerificationInProgress = savedInstanceState.getBoolean(KEY_VERIFY_IN_PROGRESS);
+
+//        Toast.makeText(this,"RestoreInstance",Toast.LENGTH_SHORT).show();
+
     }
 
 
@@ -262,6 +268,7 @@ public class OTP extends AppCompatActivity implements
                             // [START_EXCLUDE]
                             updateUI(STATE_SIGNIN_SUCCESS, user);
                             // [END_EXCLUDE]
+
                         } else {
                             Toast.makeText(getBaseContext(),"Login Failed",Toast.LENGTH_SHORT).show();
                             // Sign in failed, display a message and update the UI

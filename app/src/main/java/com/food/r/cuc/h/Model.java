@@ -5,5 +5,5 @@ package com.food.r.cuc.h;
  */
 
 public class Model {
-    String
+//    String
 }
