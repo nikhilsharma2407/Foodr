@@ -1,6 +1,7 @@
 package com.food.r.cuc.h;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
@@ -55,10 +56,12 @@ public class map extends AppCompatActivity
         setContentView(R.layout.activity_map2);
         callAll();
         databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://foodr-381cb.firebaseio.com/");
-    }
 
 
-    public void findData(View view) {
+
+
+
+
         AutoCompleteTextView editText = (AutoCompleteTextView)findViewById(R.id.actAll);
         String string = editText.getText().toString();
         DatabaseReference mchild = databaseReference.child("ngo").child("-L91qYsJ34pJcYCw8Drm").child("ngoname");
@@ -74,6 +77,32 @@ public class map extends AppCompatActivity
 
             }
         });
+
+
+
+
+
+    }
+
+
+    public void findData(View view) {
+//        AutoCompleteTextView editText = (AutoCompleteTextView)findViewById(R.id.actAll);
+//        String string = editText.getText().toString();
+//        DatabaseReference mchild = databaseReference.child("ngo").child("-L91qYsJ34pJcYCw8Drm").child("ngoname");
+//        mchild.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                String name = dataSnapshot.getValue(String.class);
+//                Toast.makeText(getBaseContext(),name,Toast.LENGTH_LONG).show();
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+        Intent intent = new Intent(this,SignUpNGOActivity.class);
+        startActivity(intent);
 
     }
     public void callAll()

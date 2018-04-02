@@ -42,9 +42,8 @@ public class SignUpNGOActivity extends AppCompatActivity {
         e6 = (EditText) findViewById(R.id.pwd1);
         e7 = (EditText) findViewById(R.id.pwd2);
         e8 = (EditText) findViewById(R.id.Email);
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("ngo");
-        newDB = mDatabase.push();
-        String key  = newDB.getKey();
+//        newDB = mDatabase.push();
+//        String key  = newDB.getKey();
         callAll();
 
     }
@@ -145,15 +144,15 @@ public class SignUpNGOActivity extends AppCompatActivity {
 
     public  void NGOsubmit(View view)
     {
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("ngo").child(e5.getText().toString()).child(e1.getText().toString());
 
-
-        newDB.child("ngoname").setValue(e1.getText().toString());
-        newDB.child("ngophone").setValue(e2.getText().toString());
-        newDB.child("ngoaddress").setValue(e3.getText().toString());
-        newDB.child("ngopin").setValue(e4.getText().toString());
-        newDB.child("ngoncity").setValue(e5.getText().toString());
-        newDB.child("ngopwd1").setValue(e6.getText().toString());
-        newDB.child("ngoemail").setValue(e8.getText().toString());
+//        mDatabase.child(e1.getText().toString());
+        mDatabase.child("ngophone").setValue(e2.getText().toString());
+        mDatabase.child("ngoaddress").setValue(e3.getText().toString());
+        mDatabase.child("ngopin").setValue(e4.getText().toString());
+//        mDatabase.child("ngoncity").setValue(e5.getText().toString());
+        mDatabase.child("ngopwd1").setValue(e6.getText().toString());
+        mDatabase.child("ngoemail").setValue(e8.getText().toString());
     }
 
     public boolean nullFields() {
