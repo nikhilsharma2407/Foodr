@@ -144,9 +144,9 @@ public class SignUpNGOActivity extends AppCompatActivity {
 
     public  void NGOsubmit(View view)
     {
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("ngo").child(e5.getText().toString()).child(e1.getText().toString());
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("ngo").child(e5.getText().toString()).push();
 
-//        mDatabase.child(e1.getText().toString());
+        mDatabase.child("Name").setValue(e1.getText().toString());
         mDatabase.child("ngophone").setValue(e2.getText().toString());
         mDatabase.child("ngoaddress").setValue(e3.getText().toString());
         mDatabase.child("ngopin").setValue(e4.getText().toString());

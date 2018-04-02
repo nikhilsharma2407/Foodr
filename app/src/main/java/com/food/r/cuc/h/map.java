@@ -1,10 +1,12 @@
 package com.food.r.cuc.h;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -15,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.food.r.cuc.h.R;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,6 +34,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class map extends AppCompatActivity
@@ -38,16 +42,11 @@ public class map extends AppCompatActivity
     DatabaseReference databaseReference;
 
     DatabaseReference newDB;
-    // array lists
-    // for the spinner in the format : City_no : City , State. Eg : 144 : New Delhi , India
     ArrayList<String> listSpinner=new ArrayList<String>();
-    // to store the city and state in the format : City , State. Eg: New Delhi , India
     ArrayList<String> listAll=new ArrayList<String>();
-    // for listing all states
     ArrayList<String> listState=new ArrayList<String>();
-    // for listing all cities
     ArrayList<String> listCity=new ArrayList<String>();
-    // access all auto complete text views
+    ArrayList<String> names = new ArrayList<String>();
     AutoCompleteTextView act;
 
     @Override
@@ -64,12 +63,56 @@ public class map extends AppCompatActivity
 
         AutoCompleteTextView editText = (AutoCompleteTextView)findViewById(R.id.actAll);
         String string = editText.getText().toString();
-        DatabaseReference mchild = databaseReference.child("ngo").child("-L91qYsJ34pJcYCw8Drm").child("ngoname");
-        mchild.addValueEventListener(new ValueEventListener() {
+//        //DatabaseReference mchild = databaseReference.child("ngo").child("-L91qYsJ34pJcYCw8Drm").child("ngoname");
+//        DatabaseReference mchild = databaseReference.child("ngo").child(editText.getText().toString());
+//        mchild.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                String name = dataSnapshot.getKey();
+//                MessageBox("",name);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+
+
+
+
+
+    }
+
+
+    public void findData(View view) {
+        AutoCompleteTextView editText = (AutoCompleteTextView)findViewById(R.id.actAll);
+        final String string = editText.getText().toString();
+        DatabaseReference mchild = databaseReference.child("ngo").child(editText.getText().toString());
+        mchild.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String name = dataSnapshot.getValue(String.class);
-                Toast.makeText(getBaseContext(),name,Toast.LENGTH_LONG).show();
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+                Log.v("Database","Data is:" +dataSnapshot.getValue());
+
+                //   Map<String,String> stringMap = dataSnapshot.getValue(Map.class);
+
+//                MessageBox(stringMap.toString(),"");
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
             }
 
             @Override
@@ -82,18 +125,21 @@ public class map extends AppCompatActivity
 
 
 
-    }
 
 
-    public void findData(View view) {
-//        AutoCompleteTextView editText = (AutoCompleteTextView)findViewById(R.id.actAll);
-//        String string = editText.getText().toString();
-//        DatabaseReference mchild = databaseReference.child("ngo").child("-L91qYsJ34pJcYCw8Drm").child("ngoname");
+
+
+
+
+
+
+
 //        mchild.addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(DataSnapshot dataSnapshot) {
-//                String name = dataSnapshot.getValue(String.class);
+//                String name = dataSnapshot.getKey();
 //                Toast.makeText(getBaseContext(),name,Toast.LENGTH_LONG).show();
+////                MessageBox("",name);
 //            }
 //
 //            @Override
@@ -101,10 +147,20 @@ public class map extends AppCompatActivity
 //
 //            }
 //        });
-        Intent intent = new Intent(this,SignUpNGOActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this,SignUpNGOActivity.class);
+//        startActivity(intent);
 
     }
+
+    public void MessageBox(String Message,String title)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+        builder.setMessage(Message);
+        builder.setTitle(title);
+        builder.setCancelable(true);
+        builder.show();
+    }
+
     public void callAll()
     {
         obj_list();
