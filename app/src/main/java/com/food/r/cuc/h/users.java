@@ -62,8 +62,6 @@ public class users extends AppCompatActivity
         setContentView(R.layout.activity_map2);
         callAll();
 
-//        e1 = (EditText)findViewById(R.id.);
-//        e2 = (EditText)findViewById(R.id.);
         phone = getIntent().getStringExtra("phone");
         name = getIntent().getStringExtra("name");
 
