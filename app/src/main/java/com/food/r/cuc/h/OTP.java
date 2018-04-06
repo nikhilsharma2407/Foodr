@@ -196,6 +196,8 @@ public class OTP extends AppCompatActivity implements
         // [START_EXCLUDE]
         if (mVerificationInProgress && validatePhoneNumber()) {
             startPhoneNumberVerification(mPhoneNumberField.getText().toString());
+            Intent intent = new Intent(this,users.class);
+            startActivity(intent);
         }
         // [END_EXCLUDE]
     }

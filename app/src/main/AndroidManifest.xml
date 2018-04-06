@@ -17,6 +17,11 @@
             android:name=".OTP"
             android:icon="@drawable/logo"
             android:label="My new title" />
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         <activity
             android:name=".MainActivity"
             android:icon="@drawable/logo"
@@ -27,13 +32,14 @@
 
         </activity>
         <activity android:name=".map">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".users"></activity>
+        <service android:name=".FoodrNotiService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"></action>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

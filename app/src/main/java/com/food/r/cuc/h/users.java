@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -15,6 +16,9 @@ import android.widget.MultiAutoCompleteTextView;
 import android.widget.Spinner;
 
 import com.food.r.cuc.h.R;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,10 +30,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class users extends AppCompatActivity
 {
+    DatabaseReference databaseReference;
+
     // array lists
     // for the spinner in the format : City_no : City , State. Eg : 144 : New Delhi , India
     ArrayList<String> listSpinner=new ArrayList<String>();
@@ -63,6 +70,48 @@ public class users extends AppCompatActivity
         mDatabase = FirebaseDatabase.getInstance().getReference().child("ngo");
         newDB = mDatabase.push();
         String key  = newDB.getKey();
+    }
+
+
+    public void findData(View view) {
+        AutoCompleteTextView editText = (AutoCompleteTextView)findViewById(R.id.actAll);
+        final String string = editText.getText().toString();
+        DatabaseReference mchild = databaseReference.child("ngo").child(editText.getText().toString());
+        mchild.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+
+                Map<String, Object> stringmap = (Map<String, Object>) dataSnapshot.getValue();
+
+                Log.v("Database","Data is:" +stringmap.toString());
+
+                StringBuffer buffer = new StringBuffer();
+                buffer.append(stringmap.get("Name").toString());
+
+//                MessageBox(stringMap.toString(),"");
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public  void usersubmit(View view)
